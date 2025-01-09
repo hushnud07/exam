@@ -8,8 +8,8 @@ class BookController {
     try {
       const books = await this.bookService.getAllBooks();
       res.json(books);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
   };
 
@@ -17,8 +17,8 @@ class BookController {
     try {
       const book = await this.bookService.addBook(req.body);
       res.status(201).json(book);
-    } catch (err) {
-      res.status(400).json({ error: err.message });
+    } catch (error) {
+      res.status(400).json({ error: error.message });
     }
   };
 
@@ -26,8 +26,8 @@ class BookController {
     try {
       const stats = await this.bookService.getBookStats();
       res.json(stats);
-    } catch (err) {
-      res.status(500).json({ error: err.message });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   };
 }
